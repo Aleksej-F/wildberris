@@ -32,7 +32,8 @@ const search = function () {
     }
 
     const getData = (value) => {
-        fetch('db/db.json')
+        //fetch('db/db.json')
+        fetch('https://weldberris-test-default-rtdb.firebaseio.com/db.json')
         .then(res => res.json())
         .then(data => {
         const array = data.filter((item) => item.name.toLowerCase().includes(value.toLowerCase()) ) 
@@ -40,7 +41,7 @@ const search = function () {
         
         localStorage.setItem('goods', (JSON.stringify(array)))
         if (window.location.pathname !== '/goods.html'){
-            window.location.href = '/goods.html'
+            window.location.href = './goods.html'
         } else  {
             renderGoods(array)
         }
